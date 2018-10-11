@@ -22,15 +22,14 @@
     <view wx:for="{{list}}" wx:key="*this" class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
   </scroll-view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
-    <swiper-item wx:for="{{list}}" wx:key="*this">
+    <swiper-item wx:for="{{swiperData}}" wx:key="*this">
       <scroll-view scroll-y="true" class="scoll-h">
-        <block wx:for="{{list}}" wx:key="*this">
+        <block wx:for="{{swiperData}}" wx:key="*this">
           <view class="item-ans" bindtap='goDetails'>
             <view class="avatar">
-              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
-              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
-              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
-              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
+              <!-- <block wx:for="{{item.imgUrl}}" wx:key="*this">
+                <image class="img" src="{{item}}"></image>
+              </block> -->
             </view>
             <!-- <view class="expertInfo">
               <view class="name">备注:</view>
@@ -38,9 +37,10 @@
               <view class="answerHistory">时间:{{item}}</view>
             </view> -->
             <view class='item-bottom'>
-              <view class='leimu'>科目: <text>{{item}}</text>  </view>
+              <view class='leimu'>科目:
+                <text>{{item.subject}}</text> </view>
               <view class='leimu beizhu'>备注:第三题第一小题打不出来</view>
-              <view class='date'>2018-10-08</view>
+              <view class='date'>{{item.addtime}}</view>
             </view>
             <!-- <navigator url="/pages/askExpert/expertDetail" class="askBtn">查看</navigator> -->
           </view>

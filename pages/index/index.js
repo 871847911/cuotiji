@@ -11,6 +11,7 @@ Page({
     inputShowed: false,
     inputVal: "",
     list: ["数学", "语文", "英语"],
+    swiperData: [],
     listSwiper: [],
     currentTab: 0,
     Swiper0: ["数学", "语文", "英语"],
@@ -18,7 +19,7 @@ Page({
     Swiper3: [
       ["美术", "英语", "体育"]
     ],
-    arrID:[]
+    arrID: []
   },
   onLoad: function() {
     wx.showLoading({
@@ -33,7 +34,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        
+
         var arr = []
         var arrID = []
         for (var i = 0; i < res.data.length; i++) {
@@ -43,6 +44,7 @@ Page({
         console.log('科目列表', arr)
         console.log('科目ID列表', arrID)
         app.globalData.kcList = arr
+        app.globalData.kcListID = arrID
         that.setData({
           list: arr,
           arrID: arrID
@@ -59,12 +61,36 @@ Page({
       },
       success(res) {
         var gra = []
+        var graID = []
         for (var i = 0; i < res.data.length; i++) {
           gra.push(res.data[i].name); //属性
-          //arr.push(obj[i]); //值
+          graID.push(res.data[i].id); //属性
         }
         console.log('年级列表', gra)
+        console.log('年级列表id', graID)
         app.globalData.njList = gra
+        app.globalData.njListID = graID
+      }
+    })
+    wx.request({
+      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/questiontype ', //仅为示例，并非真实的接口地址
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        var questionType = []
+        var questionTypeID = []
+        for (var i = 0; i < res.data.length; i++) {
+          questionType.push(res.data[i].name); //属性
+          questionTypeID.push(res.data[i].id); //属性
+        }
+        console.log('题型列表', questionType)
+        console.log('题型列表ID', questionTypeID)
+        app.globalData.questionType = questionType
+        app.globalData.questionTypeID = questionTypeID
       }
     })
     wx.getSetting({
@@ -82,7 +108,7 @@ Page({
                   console.log(res)
                   if (res.code) {
                     wx.request({
-                      url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/login', //仅为示例，并非真实的接口地址
+                      url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/login',
                       method: 'POST',
                       data: {
                         code: res.code,
@@ -94,19 +120,39 @@ Page({
                       },
                       success(res) {
                         if (res.data.code == 200) {
-                          app.globalData.openId = res.data.data.openId
+                          app.globalData.openId = res.data.data.openid
                           wx.request({
-                            url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //仅为示例，并非真实的接口地址
+                            url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
                             data: {
                               subject: that.data.arrID[0],
-                              openid: res.data.data.openId
+                              openid: res.data.data.openid
                             },
                             header: {
                               'Content-Type': 'application/x-www-form-urlencoded' // 默认值
                             },
                             success(res) {
-                              console.log("错题列表", res.data)
-                              wx.hideLoading()
+                              // console.log("错题列表", res.data.data)
+                              if (res.data.msg == "操作成功") {
+                                var newArry = res.data.data
+                                for (var i = 0; i < newArry.length; i++) {
+                                  var dataList = newArry[i].addtime.split(' ')
+                                  var imgList = newArry[i].imgUrl.split(',')
+                                  newArry[i].addtime = dataList[0]
+                                  newArry[i].imgUrl = imgList
+                                }
+                                console.log("错题列表", newArry)
+                                that.setData({
+                                  swiperData: newArry
+                                })
+                                wx.hideLoading()
+                              } else {
+                                wx.hideLoading()
+                                wx.showToast({
+                                  icon: "none",
+                                  title: res.data.msg,
+                                })
+                              }
+
 
                             }
                           })
@@ -195,11 +241,49 @@ Page({
   },
 
   switchTab: function(e) {
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       currentTab: e.detail.current
     });
-
     this.checkCor();
+    var that = this
+    wx.request({
+      url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
+      data: {
+        subject: that.data.arrID[e.detail.current],
+        openid: app.globalData.openId
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        console.log("错题列表", res.data.data)
+        if (res.data.msg == "操作成功") {
+          var newArry = res.data.data
+          for (var i = 0; i < newArry.length; i++) {
+            var dataList = newArry[i].addtime.split(' ')
+            var imgList = newArry[i].imgUrl.split(',')
+            newArry[i].addtime = dataList[0]
+            newArry[i].imgUrl = imgList
+          }
+          console.log("错题列表", newArry)
+          that.setData({
+            swiperData: newArry
+          })
+          wx.hideLoading()
+        } else {
+          wx.hideLoading()
+          wx.showToast({
+            icon: "none",
+            title: res.data.msg,
+          })
+        }
+      }
+    })
+
+
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
@@ -228,7 +312,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    
+
   },
 
   /**

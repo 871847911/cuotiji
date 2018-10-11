@@ -79,5 +79,10 @@ Page({
     this.setData({
       index2: e.detail.value
     })
+  },
+  showTopTips:function(){
+    wx.navigateTo({
+      url: '/pages/dictation/dictation',
+    })
   }
 })

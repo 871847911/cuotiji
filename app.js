@@ -36,7 +36,11 @@ App({
   globalData: {
     userInfo: null,
     kcList:[],
+    kcListID: [],
+    njListID:[],
     njList:[],
+    questionType:[],
+    questionTypeID: [],
     openId:''
   },
   

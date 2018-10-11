@@ -83,6 +83,41 @@ Page({
         success: res => {
           console.log(res)
           app.globalData.userInfo = res.userInfo
+          var encryptedData = res.encryptedData
+          var iv = res.iv
+          //login
+          wx.login({
+            success: res => {
+              console.log(res)
+              if (res.code) {
+                wx.request({
+                  url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/login', //仅为示例，并非真实的接口地址
+                  method: 'POST',
+                  data: {
+                    code: res.code,
+                    encryptedData: encryptedData,
+                    iv: iv
+                  },
+                  header: {
+                    'Content-Type': 'application/x-www-form-urlencoded' // 默认值
+                  },
+                  success(res) {
+                    if (res.data.code == 200) {
+                      app.globalData.openId = res.data.data.openId
+                    } else {
+                      wx.showToast({
+                        icon: 'none',
+                        title: res.data.msg,
+                      })
+                    }
+
+                  }
+                })
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
+            }
+          })
         }
       })
       wx.navigateBack({

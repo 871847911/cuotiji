@@ -24,7 +24,7 @@
       <radio class="radio" color="#0097FF" value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
     </label>
   </radio-group>
-  <radio-group class="radio-group" bindchange="radioChange2" >
+  <radio-group class="radio-group" bindchange="radioChange2">
     <label class="radio" wx:for="{{items2}}" wx:key="*this">
       <radio class="radio" color="#0097FF" value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
     </label>
@@ -37,7 +37,7 @@
 </view>
 
 
-<view class="weui-cells weui-cells_after-title" >
+<view class="weui-cells weui-cells_after-title">
   <view class="weui-cell weui-cell_select">
     <view class="weui-cell__hd weui-cell__hd_in-select-after">
       <view class="weui-label">科目</view>
@@ -49,7 +49,18 @@
     </view>
   </view>
 </view>
-
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">题型</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="selector" value="{{index2}}" range="{{array2}}" bindchange="bindPickerChange2">
+        <view class="weui-input weui-select weui-select_in-select-after">{{array2[index2]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
 <view class="page__bd">
   <view class="weui-cells">
     <view class="weui-cell">
