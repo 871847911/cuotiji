@@ -12,7 +12,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
+    var that = this
+    wx.request({
+      url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/query', //
+      data: {
+        bookid: options.bookid,
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        console.log("错题详情", res)
 
+        var imgList = res.data.imgUrl.split(',')
+        that.setData({
+          addtime: res.data.addtime,
+          imgUrl: imgList,
+          isCapture: res.data.isCapture==1?"已攻克":'未攻克',
+          testCenter: res.data.testCenter == 1 ? "是考点" : '不是考点',
+          isFocus: res.data.isFocus == 1 ? "是重点" : '不是重点',
+          theReason:res.data.theReason
+        })
+
+      }
+    })
   },
 
   /**

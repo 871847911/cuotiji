@@ -356,9 +356,11 @@ Page({
   onShareAppMessage: function() {
 
   },
-  goDetails: function() {
+  goDetails: function(e) {
+    // console.log(e.currentTarget.dataset.index)
+    var bookid = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: '/pages/details/details',
+      url: '/pages/details/details?bookid=' + bookid,
     })
   }
 })
