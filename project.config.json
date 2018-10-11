@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -24,13 +24,59 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 6,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/upload/upload",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改",
+					"pathName": "pages/information/information",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传错题",
+					"pathName": "pages/uploadImg/uploadImg",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传错题",
+					"pathName": "pages/lisen/lisen",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "听写",
+					"pathName": "pages/dictation/dictation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "错题上传",
+					"pathName": "pages/uploadImg/uploadImg"
+				}
+			]
 		}
 	}
 }

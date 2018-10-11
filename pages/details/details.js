@@ -1,25 +1,18 @@
-// pages/mine/mine.js
-const app = getApp()
+// pages/details/details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    files: ["http://static.lanxiang56.com/beijing.png", "http://static.lanxiang56.com/xian.png"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (true) {
-      this.setData({
-        school: '未填写',
-        name: app.globalData.userInfo.nickName,
-        touxiang: app.globalData.userInfo.avatarUrl,
-      })
-    }
+
   },
 
   /**
@@ -69,5 +62,12 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+  previewImage: function(e) {
+    console.log(e)
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.files // 需要预览的图片http链接列表
+    })
+  },
 })

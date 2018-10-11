@@ -1,0 +1,31 @@
+<!--pages/select/select.wxml-->
+<view class="weui-cells__title">选择年级</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">年级</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="selector" value="{{index1}}" range="{{array}}" bindchange="bindPickerChange">
+        <view class="weui-input weui-select weui-select_in-select-after">{{array[index1]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__title">选择学期</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学期</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="selector" value="{{index2}}" range="{{array}}" bindchange="bindPickerChange2">
+        <view class="weui-input weui-select weui-select_in-select-after">{{array[index2]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class="weui-btn-area">
+  <button class="weui-btn" hover-class="none" type="primary" bindtap="showTopTips">下一步</button>
+</view>

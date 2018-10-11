@@ -2,33 +2,44 @@
   "pages": [
     "pages/index/index",
     "pages/upload/upload",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/information/information",
+    "pages/uploadImg/uploadImg",
+    "pages/details/details",
+    "pages/lisen/lisen",
+    "pages/welcome/welcome",
+    "pages/selectChinese/selectChinese",
+    "pages/selectEnglish/selectEnglish",
+    "pages/dictation/dictation"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0097FF",
-    "navigationBarTitleText": "错题集",
+    "navigationBarTitleText": "错题本",
     "navigationBarTextStyle": "#FFFFFF"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/tabbar/Shop_Tabbar_TakeOut_Empty@2x.png",
-        "selectedIconPath": "images/tabbar/Shop_Tabbar_TakeOut_Full@2x.png",
-        "text": "首页"
+        "iconPath": "images/icon_cuoti_normal@2x.png",
+        "selectedIconPath": "images/icon_cuoti_pressed@2x.png",
+        "text": "首页",
+        "selectedColor": "#0097FF"
       },
       {
         "pagePath": "pages/upload/upload",
-        "iconPath": "images/tabbar/Shop_Tabbar_Order_Empty@2x.png",
-        "selectedIconPath": "images/tabbar/Shop_Tabbar_Order_Full@2x.png",
-        "text": "上传"
+        "iconPath": "images/icon_paishe_normal@2x.png",
+        "selectedIconPath": "images/icon_paishe_pressed@2x.png",
+        "text": "上传",
+        "selectedColor": "#0097FF"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "images/tabbar/Shop_Tabbar_My_Empty@2x.png",
-        "selectedIconPath": "images/tabbar/Shop_Tabbar_My_Full@2x.png",
-        "text": "我的"
+        "iconPath": "images/icon_wode_normal@2x.png",
+        "selectedIconPath": "images/icon_wode_pressed@2x.png",
+        "text": "我的",
+        "selectedColor": "#0097FF"
       }
     ]
   }

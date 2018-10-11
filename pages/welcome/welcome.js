@@ -1,4 +1,5 @@
-// pages/mine/mine.js
+// pages/userAuth/userAuth.js
+
 const app = getApp()
 Page({
 
@@ -13,13 +14,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (true) {
-      this.setData({
-        school: '未填写',
-        name: app.globalData.userInfo.nickName,
-        touxiang: app.globalData.userInfo.avatarUrl,
-      })
-    }
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          wx.navigateBack({
+            delta: 1
+          })
+        } else {
+          // app.checkAuth()
+        }
+      }
+    })
   },
 
   /**
@@ -33,6 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    // 查看是否授权
 
   },
 
@@ -68,6 +74,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
+
+  },
+  bindGetUserInfo(e) {
+    console.log()
+    if (e.detail.userInfo) {
+      wx.getUserInfo({
+        success: res => {
+          console.log(res)
+          app.globalData.userInfo = res.userInfo
+        }
+      })
+      wx.navigateBack({
+        delta: 1
+      })
+    }
 
   }
 })

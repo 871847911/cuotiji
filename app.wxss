@@ -9,3 +9,7 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+page{
+  min-height: 100%;
+  background:rgba(245,245,245,1);
+}

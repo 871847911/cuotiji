@@ -1,25 +1,24 @@
-// pages/mine/mine.js
-const app = getApp()
+// pages/dictation/dictation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    arry: [{
+      name: "课程1",
+      list: ["你好", "在吗", "good", "nice", "在吗", "goodgood", "nice", "在吗", "good", "nice", "在吗", "goodgood",]
+    }, {
+      name: "课程2",
+        list: ["拜拜", "在吗", "good", "nice", "在吗", "goodgood", "nice", "在吗", "good", "nice", "在吗", "good", "nice"]
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (true) {
-      this.setData({
-        school: '未填写',
-        name: app.globalData.userInfo.nickName,
-        touxiang: app.globalData.userInfo.avatarUrl,
-      })
-    }
+
   },
 
   /**

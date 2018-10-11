@@ -1,1 +1,15 @@
 /* pages/upload/upload.wxss */
+page{
+  height: 100%;
+  background: #0097FF;
+}
+.page{
+  height: 100%;
+  display:flex;
+  padding-top: 160rpx;
+  justify-content: center;/*水平居中*/
+}
+.page image{
+  width: 484rpx;
+  height: 484rpx;
+}

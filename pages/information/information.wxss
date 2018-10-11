@@ -1,0 +1,23 @@
+/* pages/information/information.wxss */
+
+button[type=primary] {
+  width: 690rpx;
+  height: 90rpx;
+  background: rgba(0, 151, 255, 1);
+  border-radius: 45rpx;
+}
+
+.weui-btn-area {
+  position: fixed;
+  bottom: 32rpx;
+  left: 50%;
+  margin-left: -345rpx;
+}
+
+.button-hover {
+  background: rgba(0, 151, 255, 0.7);
+}
+
+button:active {
+  background: rgba(0, 151, 255, 0.7);
+}

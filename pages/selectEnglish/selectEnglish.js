@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/select/select.js
 const app = getApp()
 Page({
 
@@ -6,20 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    array: ["语文", "数学", "英语"],
+    index1: 0,
+    index2: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (true) {
-      this.setData({
-        school: '未填写',
-        name: app.globalData.userInfo.nickName,
-        touxiang: app.globalData.userInfo.avatarUrl,
-      })
-    }
+    this.setData({
+      array: app.globalData.njList
+    })
   },
 
   /**
@@ -69,5 +67,17 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  bindPickerChange: function(e) {
+    console.log('picker country 发生选择改变，携带值为', e.detail.value);
+    this.setData({
+      index1: e.detail.value
+    })
+  },
+  bindPickerChange2: function(e) {
+    console.log('picker country 发生选择改变，携带值为', e.detail.value);
+    this.setData({
+      index2: e.detail.value
+    })
   }
 })

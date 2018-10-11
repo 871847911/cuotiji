@@ -1,0 +1,16 @@
+<!--pages/dictation/dictation.wxml-->
+<view class='page'>
+  <block wx:for="{{arry}}" wx:key="*this">
+    <view class='listBox'>
+      <view class='listTitle'><view class='icon'></view>{{item.name}}</view>
+      <block wx:for="{{item.list}}" wx:key="*this">
+        <view class='liBox'>{{item}}</view>
+      </block>
+      <view class='langdu'>
+        
+        <image src='../../images/music143.png'></image>
+        听写
+      </view>
+    </view>
+  </block>
+</view>

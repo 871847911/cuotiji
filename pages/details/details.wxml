@@ -1,0 +1,23 @@
+<!--pages/details/details.wxml-->
+<view class=" ">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1">大标题</view>
+      <view class="page__desc">语文
+        <text>2018.3.29</text>
+      </view>
+      <view class="weui-article__section">
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </view>
+          <block wx:for="{{files}}" wx:key="*this">
+            <view class="weui-article__p" bindtap="previewImage" id="{{item}}">
+              <image  class="" src="{{item}}" mode="widthFix"/>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

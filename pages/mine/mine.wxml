@@ -1,2 +1,38 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='myBox'>
+  <view class="item-ans">
+    <view class="avatar">
+      <image class="img" src="{{touxiang}}"></image>
+    </view>
+    <view class="expertInfo">
+      <view class="name">{{name}}</view>
+      <!-- <view class="tag">年级:二年级</view> -->
+      <view class="answerHistory">{{school}}</view>
+    </view>
+    <navigator url="/pages/information/information" class="askBtn">点击修改资料</navigator>
+  </view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+      <view class="weui-cells weui-cells_in-small-appmsg">
+        <navigator url="/pages/selectChinese/selectChinese" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../images/yuwen.png" style="width: 20px;height: 20px;margin-right: 5px" />
+          </view>
+          <view class="weui-cell__bd weui-cell_primary">
+            <view class='text'>语文听默</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="/pages/selectEnglish/selectEnglish" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../images/yinyu.png" style="width: 20px;height: 20px;margin-right: 5px" />
+          </view>
+          <view class="weui-cell__bd weui-cell_primary">
+            <view class='text'>英语听默</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

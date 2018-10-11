@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  goupload:function(){
+    wx.navigateTo({
+      url: '/pages/uploadImg/uploadImg',
+    })
   }
 })

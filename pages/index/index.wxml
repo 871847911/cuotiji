@@ -5,17 +5,48 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="bindconfirm" />
           <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>
         </view>
         <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
           <icon class="weui-icon-search" type="search" size="14"></icon>
-          <view class="weui-search-bar__text">搜索</view>
+          <view class="weui-search-bar__text">输入关键词</view>
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
   </view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view wx:for="{{list}}" wx:key="*this" class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
+  </scroll-view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper-item wx:for="{{list}}" wx:key="*this">
+      <scroll-view scroll-y="true" class="scoll-h">
+        <block wx:for="{{list}}" wx:key="*this">
+          <view class="item-ans" bindtap='goDetails'>
+            <view class="avatar">
+              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
+              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
+              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
+              <image class="img" src="http://static.lanxiang56.com/beijing.png"></image>
+            </view>
+            <!-- <view class="expertInfo">
+              <view class="name">备注:</view>
+              <view class="tag">科目:{{item}}</view>
+              <view class="answerHistory">时间:{{item}}</view>
+            </view> -->
+            <view class='item-bottom'>
+              <view class='leimu'>科目: <text>{{item}}</text>  </view>
+              <view class='leimu beizhu'>备注:第三题第一小题打不出来</view>
+              <view class='date'>2018-10-08</view>
+            </view>
+            <!-- <navigator url="/pages/askExpert/expertDetail" class="askBtn">查看</navigator> -->
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
 </view>

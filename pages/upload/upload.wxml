@@ -1,2 +1,4 @@
 <!--pages/upload/upload.wxml-->
-<text>pages/upload/upload.wxml</text>
+<view class='page'>
+  <image bindtap='goupload' src='../../images/btn_paishe@2x.png'></image>
+</view>

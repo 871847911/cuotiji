@@ -1,0 +1,6 @@
+<view class='getUser'>
+  <view class='imgBox'>
+    <image src='../../images/logo.jpg'></image>
+  </view>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信用户授权</button>
+</view>

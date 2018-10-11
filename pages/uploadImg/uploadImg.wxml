@@ -1,0 +1,80 @@
+<!--pages/uploadImg/uploadImg.wxml-->
+<!-- <view class="weui-cells__title">错题标题</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="title" maxlength='20' placeholder="请输入错题标题" />
+    </view>
+  </view>
+</view> -->
+
+<view class="weui-cells__title">错题原因</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" bindinput='yuanyin' placeholder="请输入错题原因" maxlength="200" auto-height="true" />
+      <!-- <view class="weui-textarea-counter">0/200</view> -->
+    </view>
+  </view>
+</view>
+<view class="weui-cells__title">选择类别</view>
+<view class='radioBox'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{items}}" wx:key="*this">
+      <radio class="radio" color="#0097FF" value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
+    </label>
+  </radio-group>
+  <radio-group class="radio-group" bindchange="radioChange2" >
+    <label class="radio" wx:for="{{items2}}" wx:key="*this">
+      <radio class="radio" color="#0097FF" value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
+    </label>
+  </radio-group>
+  <radio-group class="radio-group" bindchange="radioChange3">
+    <label class="radio" wx:for="{{items3}}" wx:key="*this">
+      <radio class="radio" color="#0097FF" value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />{{item.value}}
+    </label>
+  </radio-group>
+</view>
+
+
+<view class="weui-cells weui-cells_after-title" >
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">科目</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="bindPickerChange">
+        <view class="weui-input weui-select weui-select_in-select-after">{{array[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="page__bd">
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">图片上传</view>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{files}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box" wx:if="{{files.length<9}}">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-btn-area">
+  <button class="weui-btn" hover-class="none" type="primary" bindtap="showTopTips">确定</button>
+</view>

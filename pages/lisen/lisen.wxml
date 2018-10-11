@@ -1,0 +1,4 @@
+<!--pages/lisen/lisen.wxml-->
+<button type='' bindtap='sendMessage'>播放</button>
+<!-- <audio src="{{filePath}}" id="myAudio" ></audio> -->
+<!-- <button type="primary" bindtap="play">播放</button> -->
