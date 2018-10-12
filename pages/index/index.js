@@ -39,7 +39,7 @@ Page({
         var arrID = []
         for (var i = 0; i < res.data.length; i++) {
           arr.push(res.data[i].name); //属性
-          arrID.push(res.data[i].id)
+          arrID.push(res.data[i].value)
         }
         console.log('科目列表', arr)
         console.log('科目ID列表', arrID)
@@ -64,12 +64,33 @@ Page({
         var graID = []
         for (var i = 0; i < res.data.length; i++) {
           gra.push(res.data[i].name); //属性
-          graID.push(res.data[i].id); //属性
+          graID.push(res.data[i].value); //属性
         }
         console.log('年级列表', gra)
         console.log('年级列表id', graID)
         app.globalData.njList = gra
         app.globalData.njListID = graID
+      }
+    })
+    wx.request({
+      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/semester ', //仅为示例，并非真实的接口地址
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        var xueqi = []
+        var xueqiID = []
+        for (var i = 0; i < res.data.length; i++) {
+          xueqi.push(res.data[i].name); //属性
+          xueqiID.push(res.data[i].value); //属性
+        }
+        console.log('学期列表', xueqi)
+        console.log('学期列表id', xueqiID)
+        app.globalData.xueqi = xueqi
+        app.globalData.xueqiID = xueqiID
       }
     })
     wx.request({
@@ -80,12 +101,14 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
+
+
       success(res) {
         var questionType = []
         var questionTypeID = []
         for (var i = 0; i < res.data.length; i++) {
           questionType.push(res.data[i].name); //属性
-          questionTypeID.push(res.data[i].id); //属性
+          questionTypeID.push(res.data[i].value); //属性
         }
         console.log('题型列表', questionType)
         console.log('题型列表ID', questionTypeID)
@@ -98,14 +121,12 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: res => {
-              console.log(res)
               app.globalData.userInfo = res.userInfo
               var encryptedData = res.encryptedData
               var iv = res.iv
               //login
               wx.login({
                 success: res => {
-                  console.log(res)
                   if (res.code) {
                     wx.request({
                       url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/login',
@@ -119,6 +140,8 @@ Page({
                         'Content-Type': 'application/x-www-form-urlencoded' // 默认值
                       },
                       success(res) {
+                        console.log("登录",res)
+                        app.globalData.rellInfo = res.data.data
                         if (res.data.code == 200) {
                           app.globalData.openId = res.data.data.openid
                           wx.request({

@@ -5,19 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arry: [{
-      name: "课程1",
-      list: ["你好", "在吗", "good", "nice", "在吗", "goodgood", "nice", "在吗", "good", "nice", "在吗", "goodgood",]
-    }, {
-      name: "课程2",
-        list: ["拜拜", "在吗", "good", "nice", "在吗", "goodgood", "nice", "在吗", "good", "nice", "在吗", "good", "nice"]
-    }]
+    arry: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    console.log(options)
+    var that = this
+    wx.request({
+      url: 'http://lvyq.free.idcfengye.com/business/businessText/api/list', 
+      data: {
+        // textId: 0,
+        semester: options.semester+1,
+        subject: options.subject,
+        grade: options.gradetext+1,
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        wx.hideLoading()
+        console.log(res.data)
+        var list = res.data.data
+        for(var i =0;i<list.length;i++){
+          var words = list[i].words.split(',')
+          list[i].words = words
+        }
+        console.log("听默列表", list)
+        that.setData({
+          arry: list
+        })
+      }
+    })
 
   },
 

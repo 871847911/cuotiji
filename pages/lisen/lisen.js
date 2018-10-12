@@ -27,7 +27,7 @@ Page({
     var that = this
     wx.getSystemInfo({
       success: function(res) {
-        console.log("getSystemInfo",res)
+        console.log("getSystemInfo", res)
         IMEI = res.SDKVersion
       }
     })
@@ -148,6 +148,13 @@ Page({
         innerAudioContext.onPlay(() => {
 
       console.log('开始播放')
+
+    })
+    innerAudioContext.onEnded(() => {
+
+      console.log('播放结束')
+
+      // that.setData({ audioStatus: false })
 
     })
 

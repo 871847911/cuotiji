@@ -16,7 +16,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      array: app.globalData.njList
+      array: app.globalData.njList,
+      array2: app.globalData.xueqi,
     })
   },
 
@@ -74,15 +75,15 @@ Page({
       index1: e.detail.value
     })
   },
-  bindPickerChange2: function (e) {
+  bindPickerChange2: function(e) {
     console.log('picker country 发生选择改变，携带值为', e.detail.value);
     this.setData({
       index2: e.detail.value
     })
   },
-  showTopTips:function(){
+  showTopTips: function() {
     wx.navigateTo({
-      url: '/pages/dictation/dictation',
+      url: '/pages/dictation/dictation?gradetext=' + this.data.index1 + '&semester=' + this.data.index2 + '&subject=0',
     })
   }
 })

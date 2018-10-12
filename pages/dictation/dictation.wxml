@@ -1,16 +1,23 @@
 <!--pages/dictation/dictation.wxml-->
-<view class='page'>
+<view class='page' wx:if="{{arry.length>0}}">
   <block wx:for="{{arry}}" wx:key="*this">
     <view class='listBox'>
-      <view class='listTitle'><view class='icon'></view>{{item.name}}</view>
-      <block wx:for="{{item.list}}" wx:key="*this">
+      <view class='listTitle'>
+        <view class='icon'></view>{{item.title}}</view>
+      <block wx:for="{{item.words}}" wx:key="*this">
         <view class='liBox'>{{item}}</view>
       </block>
       <view class='langdu'>
-        
+
         <image src='../../images/music143.png'></image>
         听写
       </view>
     </view>
   </block>
+</view>
+<view wx:else>
+  <view class='noData'>
+    <image src='../../images/none.png'></image>
+  </view>
+  <view class='noDataText'>暂无听默资料</view>
 </view>

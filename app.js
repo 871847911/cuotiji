@@ -35,8 +35,11 @@ App({
   },
   globalData: {
     userInfo: null,
+    rellInfo:null,
     kcList:[],
     kcListID: [],
+    xueqi: [],
+    xueqiID: [],
     njListID:[],
     njList:[],
     questionType:[],

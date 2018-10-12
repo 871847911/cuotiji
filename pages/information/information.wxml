@@ -5,7 +5,7 @@
       <view class="weui-label">姓名</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="请输入姓名" bindinput="name" />
+      <input class="weui-input" placeholder="请输入姓名" maxlength='20' bindinput="name" />
     </view>
   </view>
 
@@ -19,13 +19,20 @@
       </picker>
     </view>
   </view>
-
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">学校</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入学校名" maxlength='20' bindinput="school" />
+    </view>
+  </view>
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">手机号</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="请输入手机号" bindinput="phone" />
+      <input class="weui-input" maxlength='11' placeholder="请输入手机号" bindinput="phone" />
     </view>
   </view>
 </view>

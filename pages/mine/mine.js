@@ -15,8 +15,8 @@ Page({
   onLoad: function(options) {
     if (true) {
       this.setData({
-        school: '未填写',
-        name: app.globalData.userInfo.nickName,
+        school: app.globalData.rellInfo.currentSchool == null ? '未填写' : app.globalData.rellInfo.currentSchool,
+        name: app.globalData.rellInfo.name == null ? app.globalData.userInfo.nickName : app.globalData.rellInfo.name,
         touxiang: app.globalData.userInfo.avatarUrl,
       })
     }

@@ -113,13 +113,18 @@
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
 }
-.leimu text{
-  color: #0097FF
+
+.leimu text {
+  color: #0097ff;
 }
-.beizhu{
+
+.beizhu {
   width: 294rpx;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .date {
   font-size: 26rpx;
   /* font-family: PingFangSC-Regular; */
@@ -157,4 +162,25 @@
 
 .scoll-h {
   height: 100%;
+}
+
+.noData {
+  width: 260rpx;
+  height: 212rpx;
+  margin: 0 auto;
+  padding-top: 216rpx;
+}
+
+.noData image {
+  width: 260rpx;
+  height: 212rpx;
+}
+
+.noDataText {
+  text-align: center;
+  padding-top: 28rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
 }

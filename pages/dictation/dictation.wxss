@@ -9,7 +9,7 @@
   margin-bottom: 20rpx;
   position: relative;
   /* box-shadow:  */
-  border-radius:20px;
+  border-radius: 20px;
 }
 
 .listTitle {
@@ -59,5 +59,25 @@
   height: 28rpx;
   margin-right: 8rpx;
   margin-top: 9rpx;
-  
+}
+
+.noData {
+  width: 260rpx;
+  height: 212rpx;
+  margin: 0 auto;
+  padding-top: 216rpx;
+}
+
+.noData image {
+  width: 260rpx;
+  height: 212rpx;
+}
+
+.noDataText {
+  text-align: center;
+  padding-top: 28rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
 }

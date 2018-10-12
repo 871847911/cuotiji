@@ -71,16 +71,18 @@ Page({
         console.log(res)
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
+        // that.setData({
+        //   files: that.data.files.concat(tempFilePaths)
+        // });
         var myDate = new Date()
         // var ossPath = 'seekings/' + myDate.getFullYear()
         for (var i = 0; i < tempFilePaths.length; i++) { // 获取文件后缀        
           var pathArr = tempFilePaths[i].split('.') //  随机生成文件名称
-          console.log(pathArr)
           var fileRandName = Date.now() + "" + parseInt(Math.random() * 1000)
           var fileName = fileRandName + '.' + pathArr[pathArr.length - 1] // 要提交的key    
           var fileKey = fileName
-          console.log(fileKey)
           var imgPath = 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/' + fileKey
+          console.log(imgPath)
           wx.uploadFile({
             url: 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/',
             filePath: tempFilePaths[i],

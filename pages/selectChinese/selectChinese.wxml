@@ -20,8 +20,8 @@
       <view class="weui-label">学期</view>
     </view>
     <view class="weui-cell__bd">
-      <picker mode="selector" value="{{index2}}" range="{{array}}" bindchange="bindPickerChange2">
-        <view class="weui-input weui-select weui-select_in-select-after">{{array[index2]}}</view>
+      <picker mode="selector" value="{{index2}}" range="{{array2}}" bindchange="bindPickerChange2">
+        <view class="weui-input weui-select weui-select_in-select-after">{{array2[index2]}}</view>
       </picker>
     </view>
   </view>
