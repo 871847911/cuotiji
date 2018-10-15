@@ -104,6 +104,9 @@ Page({
                   success(res) {
                     if (res.data.code == 200) {
                       app.globalData.openId = res.data.data.openId
+                      wx.navigateBack({
+                        delta: 1
+                      })
                     } else {
                       wx.showToast({
                         icon: 'none',
@@ -120,9 +123,7 @@ Page({
           })
         }
       })
-      wx.navigateBack({
-        delta: 1
-      })
+
     }
 
   }

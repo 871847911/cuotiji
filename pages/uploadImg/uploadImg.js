@@ -76,45 +76,49 @@ Page({
         // });
         var myDate = new Date()
         // var ossPath = 'seekings/' + myDate.getFullYear()
-        for (var i = 0; i < tempFilePaths.length; i++) { // 获取文件后缀        
-          var pathArr = tempFilePaths[i].split('.') //  随机生成文件名称
-          var fileRandName = Date.now() + "" + parseInt(Math.random() * 1000)
-          var fileName = fileRandName + '.' + pathArr[pathArr.length - 1] // 要提交的key    
-          var fileKey = fileName
-          var imgPath = 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/' + fileKey
-          console.log(imgPath)
-          wx.uploadFile({
-            url: 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/',
-            filePath: tempFilePaths[i],
-            name: 'file',
-            formData: {
-              name: tempFilePaths[i],
-              key: fileKey,
-              policy: 'eyJleHBpcmF0aW9uIjoiMjAyMC0wMS0wMVQxMjowMDowMC4wMDBaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF1dfQ==',
-              OSSAccessKeyId: 'LTAI40OGe4s7zlyS',
-              signature: 'ewnOTkgIo8+f7q1JuMgk6A3sB7k=',
-              success_action_status: "200"
-            },
-            success: function(res) {
-              console.log("上传图片结果", res)
-              if (res.statusCode == 200) {
-                that.setData({
-                  files: that.data.files.concat(imgPath)
-                });
-              } else {
-                wx.showToast({
-                  title: '上传失败',
-                  icon: 'none'
-                })
-              }
-            }
-          })
+        for (var i = 0; i < tempFilePaths.length; i++) { // 获取文件后缀
+
+          that.uploadImg(tempFilePaths, i)
+
         }
 
       }
     })
   },
-
+  uploadImg(tempFilePaths, i) {
+    var that = this
+    var pathArr = tempFilePaths[i].split('.') //  随机生成文件名称
+    var fileRandName = Date.now() + "" + parseInt(Math.random() * 1000)
+    var fileName = fileRandName + '.' + pathArr[pathArr.length - 1] // 要提交的key    
+    var fileKey = fileName
+    var imgPath = 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/' + fileKey
+    wx.uploadFile({
+      url: 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/',
+      filePath: tempFilePaths[i],
+      name: 'file',
+      formData: {
+        name: tempFilePaths[i],
+        key: fileKey,
+        policy: 'eyJleHBpcmF0aW9uIjoiMjAyMC0wMS0wMVQxMjowMDowMC4wMDBaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF1dfQ==',
+        OSSAccessKeyId: 'LTAI40OGe4s7zlyS',
+        signature: 'ewnOTkgIo8+f7q1JuMgk6A3sB7k=',
+        success_action_status: "200"
+      },
+      success: function(res) {
+        console.log("上传图片结果", res)
+        if (res.statusCode == 200) {
+          that.setData({
+            files: that.data.files.concat(imgPath)
+          });
+        } else {
+          wx.showToast({
+            title: '上传失败',
+            icon: 'none'
+          })
+        }
+      }
+    })
+  },
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
     let value = e.detail.value;
@@ -200,7 +204,7 @@ Page({
               imgUrl: this.data.files
             },
             header: {
-              'Content-Type': 'application/x-www-form-urlencoded'// 默认值
+              'Content-Type': 'application/x-www-form-urlencoded' // 默认值
             },
             success(res) {
               if (res.data.msg == "操作成功") {

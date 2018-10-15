@@ -1,0 +1,36 @@
+<!--pages/list/list.wxml-->
+<block wx:if="{{swiperData.length>0}}">
+  <block wx:for="{{swiperData}}" wx:key="*this">
+    <view class="item-ans" bindtap='goDetails' data-index="{{item.bookid}}">
+      <view class="avatar">
+        <block wx:for="{{item.imgUrl}}" wx:key="*this">
+          <image class="img" src="{{item}}"></image>
+        </block>
+      </view>
+      <view class='item-bottom'>
+        <view class='leimu'>题型:
+          <text>{{item.questionTypeText}}</text>
+        </view>
+        <view class='leimu'>
+          <text style='color:#F43531' wx:if="{{item.isFocus==1}}">重点</text>
+          <text wx:else>非重点</text>
+        </view>
+        <view class='leimu'>
+          <text wx:if="{{item.isCapture==1}}">已攻克</text>
+          <text wx:else style='color:#F43531'>未攻克</text>
+        </view>
+        <view class='leimu'>
+          <text style='color:#F43531' wx:if="{{item.testCenter==1}}">知识考点</text>
+          <text wx:else>非知识考点</text>
+        </view>
+        <view class='date'>{{item.addtime}}</view>
+      </view>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <view class='noData'>
+    <image src='../../images/none.png'></image>
+  </view>
+  <view class='noDataText'>暂无错题</view>
+</block>

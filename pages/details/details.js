@@ -27,11 +27,12 @@ Page({
 
         var imgList = res.data.imgUrl.split(',')
         that.setData({
+          title: res.data.subjectText,
           addtime: res.data.addtime,
           imgUrl: imgList,
           isCapture: res.data.isCapture==1?"已攻克":'未攻克',
-          testCenter: res.data.testCenter == 1 ? "是考点" : '不是考点',
-          isFocus: res.data.isFocus == 1 ? "是重点" : '不是重点',
+          testCenter: res.data.testCenter == 1 ? "知识考点" : '非知识考点',
+          isFocus: res.data.isFocus == 1 ? "重点" : '非重点',
           theReason:res.data.theReason
         })
 

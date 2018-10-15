@@ -10,7 +10,8 @@
     "pages/welcome/welcome",
     "pages/selectChinese/selectChinese",
     "pages/selectEnglish/selectEnglish",
-    "pages/dictation/dictation"
+    "pages/dictation/dictation",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -7,8 +7,7 @@
       <block wx:for="{{item.words}}" wx:key="*this">
         <view class='liBox'>{{item}}</view>
       </block>
-      <view class='langdu'>
-
+      <view class='langdu' data-index="{{index}}" bindtap='sendMessage'>
         <image src='../../images/music143.png'></image>
         听写
       </view>

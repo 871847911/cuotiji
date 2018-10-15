@@ -2,13 +2,14 @@
 <view class=" ">
   <view class="page__bd">
     <view class="weui-article">
+      <view class="page__hd">
+        <view class="page__title">{{title}}</view>
+        <view class="page__desc">{{addtime}}</view>
+      </view>
       <view class="page__desc">
-        <text>{{addtime}}</text>
         <text>{{isCapture}}</text>
         <text>{{testCenter}}</text>
         <text>{{isFocus}}</text>
-        <text>{{addtime}}</text>
-        <text>{{addtime}}</text>
       </view>
       <view class="weui-article__section">
         <view class="weui-article__section">
