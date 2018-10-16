@@ -1,5 +1,5 @@
+const app = getApp()
 var msg, token, IMEI, filePath
-
 Page({
 
      

@@ -91,9 +91,9 @@ Page({
     var fileRandName = Date.now() + "" + parseInt(Math.random() * 1000)
     var fileName = fileRandName + '.' + pathArr[pathArr.length - 1] // 要提交的key    
     var fileKey = fileName
-    var imgPath = 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/' + fileKey
+    var imgPath = 'https://wdxfedu.oss-cn-hangzhou.aliyuncs.com/' + fileKey
     wx.uploadFile({
-      url: 'http://wdxfedu.oss-cn-hangzhou.aliyuncs.com/',
+      url: 'https://wdxfedu.oss-cn-hangzhou.aliyuncs.com/',
       filePath: tempFilePaths[i],
       name: 'file',
       formData: {

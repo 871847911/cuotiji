@@ -1,39 +1,45 @@
 // pages/details/details.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    files: ["http://static.lanxiang56.com/beijing.png", "http://static.lanxiang56.com/xian.png"]
+    imgUrl: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     console.log(options)
     var that = this
     wx.request({
       url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/query', //
       data: {
         bookid: options.bookid,
+        openid: app.globalData.openId
       },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded' // 默认值
       },
       success(res) {
         console.log("错题详情", res)
-
+        wx.hideLoading()
         var imgList = res.data.imgUrl.split(',')
         that.setData({
           title: res.data.subjectText,
           addtime: res.data.addtime,
           imgUrl: imgList,
-          isCapture: res.data.isCapture==1?"已攻克":'未攻克',
-          testCenter: res.data.testCenter == 1 ? "知识考点" : '非知识考点',
-          isFocus: res.data.isFocus == 1 ? "重点" : '非重点',
-          theReason:res.data.theReason
+          isCapture: res.data.isCapture,
+          testCenter: res.data.testCenter,
+          isFocus: res.data.isFocus,
+          theReason:res.data.theReason,
+          questionTypeText: res.data.questionTypeText
         })
 
       }
@@ -92,7 +98,7 @@ Page({
     console.log(e)
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
+      urls: this.data.imgUrl // 需要预览的图片http链接列表
     })
   },
 })

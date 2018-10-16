@@ -1,4 +1,5 @@
 // pages/upload/upload.js
+const app = getApp()
 Page({
 
   /**

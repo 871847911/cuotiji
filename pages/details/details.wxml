@@ -1,26 +1,46 @@
 <!--pages/details/details.wxml-->
 <view class=" ">
-  <view class="page__bd">
-    <view class="weui-article">
-      <view class="page__hd">
-        <view class="page__title">{{title}}</view>
-        <view class="page__desc">{{addtime}}</view>
-      </view>
-      <view class="page__desc">
-        <text>{{isCapture}}</text>
-        <text>{{testCenter}}</text>
-        <text>{{isFocus}}</text>
-      </view>
-      <view class="weui-article__section">
-        <view class="weui-article__section">
-          <view class="weui-article__p">{{theReason}}</view>
-          <block wx:for="{{imgUrl}}" wx:key="*this">
-            <view class="weui-article__p" bindtap="previewImage" id="{{item}}">
-              <image class="" src="{{item}}" mode="widthFix" />
-            </view>
-          </block>
-        </view>
-      </view>
+  <view class='mainBox'>
+    <view class='subject'>{{title}}</view>
+    <view class='right'>题型：
+      <text class='tixing'>{{questionTypeText}}</text>
     </view>
+  </view>
+  <view class='mainBox'>
+    <view class='left'>时间</view>
+    <view class='right'>
+      <text class='tixing'>{{addtime}}</text>
+    </view>
+  </view>
+  <view class='mainBox'>
+    <view class='left'>是否知识考点</view>
+    <view class='right'>
+      <text wx:if="{{testCenter==1}}" class='tixing red'>是</text>
+      <text wx:else class='tixing'>否</text>
+    </view>
+  </view>
+  <view class='mainBox'>
+    <view class='left'>是否攻克</view>
+    <view class='right'>
+      <text wx:if="{{isCapture==1}}" class='tixing'>是</text>
+      <text wx:else class='tixing red'>否</text>
+    </view>
+  </view>
+  <view class='mainBox'>
+    <view class='left'>是否重点</view>
+    <view class='right'>
+      <text wx:if="{{isFocus==1}}" class='tixing red'>是</text>
+      <text wx:else class='tixing'>否</text>
+    </view>
+  </view>
+  <view class='title'>错题原因</view>
+  <view class='yuanying'>{{theReason}}</view>
+  <view class='title'>错题集图片集合</view>
+  <view class='imgBox'>
+    <block wx:for="{{imgUrl}}" wx:key="*this">
+      <view class="img" bindtap="previewImage" id="{{item}}">
+        <image class="" src="{{item}}" />
+      </view>
+    </block>
   </view>
 </view>

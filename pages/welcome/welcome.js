@@ -1,5 +1,4 @@
 // pages/userAuth/userAuth.js
-
 const app = getApp()
 Page({
 

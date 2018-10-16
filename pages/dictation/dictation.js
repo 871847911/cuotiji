@@ -1,5 +1,6 @@
 // pages/dictation/dictation.js
 var msg, token, IMEI, filePath
+const app = getApp()
 Page({
 
   /**
@@ -33,6 +34,7 @@ Page({
         semester: options.semester + 1,
         subject: options.subject,
         grade: options.gradetext + 1,
+        openid: app.globalData.openId
       },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded' // 默认值

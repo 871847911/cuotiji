@@ -1,4 +1,5 @@
 // pages/list/list.js
+const app = getApp()
 Page({
 
   /**
@@ -17,7 +18,8 @@ Page({
     wx.request({
       url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
       data: {
-        theReasonText: options.value
+        theReasonText: options.value,
+        openid: app.globalData.openId
       },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded' // 默认值

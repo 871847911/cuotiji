@@ -146,6 +146,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    this.setData({
+      currentTab: 0,
+    })
     wx.showLoading({
       title: '加载中',
     })
@@ -268,7 +271,7 @@ Page({
                           wx.request({
                             url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
                             data: {
-                              subject: that.data.arrID[0],
+                              subject: 0,
                               openid: res.data.data.openid
                             },
                             header: {
@@ -284,7 +287,7 @@ Page({
                                   newArry[i].addtime = dataList[0]
                                   newArry[i].imgUrl = imgList
                                 }
-                                console.log("错题列表", newArry)
+                                // console.log("错题列表", newArry)
                                 that.setData({
                                   swiperData: newArry
                                 })

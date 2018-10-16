@@ -101,7 +101,8 @@ Page({
           name: that.data.name,
           currentSchool: that.data.school,
           mobile: that.data.phone,
-          id: app.globalData.rellInfo.id
+          id: app.globalData.rellInfo.id,
+          openid: app.globalData.openId
         },
         header: {
           'Content-Type': 'application/x-www-form-urlencoded' // 默认值
