@@ -20,27 +20,25 @@
     "navigationBarTextStyle": "#FFFFFF"
   },
   "tabBar": {
+    "selectedColor": "#0097FF",
     "list": [
       {
         "pagePath": "pages/index/index",
         "iconPath": "images/icon_cuoti_normal@2x.png",
         "selectedIconPath": "images/icon_cuoti_pressed@2x.png",
-        "text": "首页",
-        "selectedColor": "#0097FF"
+        "text": "首页"
       },
       {
         "pagePath": "pages/upload/upload",
         "iconPath": "images/icon_paishe_normal@2x.png",
         "selectedIconPath": "images/icon_paishe_pressed@2x.png",
-        "text": "上传",
-        "selectedColor": "#0097FF"
+        "text": "上传"
       },
       {
         "pagePath": "pages/mine/mine",
         "iconPath": "images/icon_wode_normal@2x.png",
         "selectedIconPath": "images/icon_wode_pressed@2x.png",
-        "text": "我的",
-        "selectedColor": "#0097FF"
+        "text": "我的"
       }
     ]
   }

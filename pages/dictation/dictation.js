@@ -28,12 +28,12 @@ Page({
     })
     that.tts()
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/business/businessText/api/list',
+      url: 'https://www.wdxfedu.com/apiMan/business/businessText/api/list',
       data: {
         // textId: 0,
-        semester: options.semester + 1,
+        semester: Number(options.semester) + 1,
         subject: options.subject,
-        grade: options.gradetext + 1,
+        grade: Number(options.gradetext) + 1,
         openid: app.globalData.openId
       },
       header: {
@@ -47,7 +47,7 @@ Page({
           var words = list[i].words.split(',')
           list[i].words = words
         }
-        console.log("听默列表", list)
+        console.log("听默列表", res)
         that.setData({
           arry: list
         })

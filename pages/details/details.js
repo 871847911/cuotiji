@@ -19,7 +19,7 @@ Page({
     console.log(options)
     var that = this
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/query', //
+      url: 'https://www.wdxfedu.com/apiMan/business/businessWrongbook/api/query', //
       data: {
         bookid: options.bookid,
         openid: app.globalData.openId

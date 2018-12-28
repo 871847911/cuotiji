@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
-	"appid": "wxea85cbb4b4ca24a8",
+	"appid": "wxbaa10804ea4bb09b",
 	"projectname": "%E9%94%99%E9%A2%98%E9%9B%86",
 	"isGameTourist": false,
 	"condition": {

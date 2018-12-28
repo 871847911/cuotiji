@@ -95,7 +95,7 @@ Page({
     } else {
       var that = this
       wx.request({
-        url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/update',
+        url: 'https://www.wdxfedu.com/apiMan/wxmp/mpFans/api/update',
         data: {
           grade: that.data.index,
           name: that.data.name,

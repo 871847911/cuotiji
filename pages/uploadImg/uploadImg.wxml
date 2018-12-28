@@ -7,16 +7,6 @@
     </view>
   </view>
 </view> -->
-
-<view class="weui-cells__title">错题原因</view>
-<view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell">
-    <view class="weui-cell__bd">
-      <textarea class="weui-textarea" bindinput='yuanyin' placeholder="请输入错题原因" maxlength="200" auto-height="true" />
-      <!-- <view class="weui-textarea-counter">0/200</view> -->
-    </view>
-  </view>
-</view>
 <view class="weui-cells__title">选择类别</view>
 <view class='radioBox'>
   <radio-group class="radio-group" bindchange="radioChange">
@@ -45,18 +35,6 @@
     <view class="weui-cell__bd">
       <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="bindPickerChange">
         <view class="weui-input weui-select weui-select_in-select-after">{{array[index]}}</view>
-      </picker>
-    </view>
-  </view>
-</view>
-<view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell weui-cell_select">
-    <view class="weui-cell__hd weui-cell__hd_in-select-after">
-      <view class="weui-label">题型</view>
-    </view>
-    <view class="weui-cell__bd">
-      <picker mode="selector" value="{{index2}}" range="{{array2}}" bindchange="bindPickerChange2">
-        <view class="weui-input weui-select weui-select_in-select-after">{{array2[index2]}}</view>
       </picker>
     </view>
   </view>

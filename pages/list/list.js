@@ -16,7 +16,7 @@ Page({
     console.log(options.value)
     var that = this
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
+      url: 'https://www.wdxfedu.com/apiMan/business/businessWrongbook/api/list', //
       data: {
         theReasonText: options.value,
         openid: app.globalData.openId

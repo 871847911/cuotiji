@@ -75,7 +75,7 @@ Page({
     this.checkCor();
     var that = this
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
+      url: 'https://www.wdxfedu.com/apiMan/business/businessWrongbook/api/list', //
       data: {
         subject: that.data.arrID[e.detail.current],
         openid: app.globalData.openId
@@ -153,7 +153,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/subject', //仅为示例，并非真实的接口地址
+      url: 'https://www.wdxfedu.com/apiMan/common/sysDict/api/list/subject', //仅为示例，并非真实的接口地址
       data: {
 
       },
@@ -178,7 +178,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/grade ', //仅为示例，并非真实的接口地址
+      url: 'https://www.wdxfedu.com/apiMan/common/sysDict/api/list/grade ', //仅为示例，并非真实的接口地址
       data: {
 
       },
@@ -199,7 +199,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/semester ', //仅为示例，并非真实的接口地址
+      url: 'https://www.wdxfedu.com/apiMan/common/sysDict/api/list/semester ', //仅为示例，并非真实的接口地址
       data: {
 
       },
@@ -220,7 +220,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://lvyq.free.idcfengye.com/common/sysDict/api/list/questiontype ', //仅为示例，并非真实的接口地址
+      url: 'https://www.wdxfedu.com/apiMan/common/sysDict/api/list/questiontype ', //仅为示例，并非真实的接口地址
       data: {
 
       },
@@ -253,7 +253,7 @@ Page({
                 success: res => {
                   if (res.code) {
                     wx.request({
-                      url: 'http://lvyq.free.idcfengye.com/wxmp/mpFans/api/login',
+                      url: 'https://www.wdxfedu.com/apiMan/wxmp/mpFans/api/login',
                       method: 'POST',
                       data: {
                         code: res.code,
@@ -269,7 +269,7 @@ Page({
                         if (res.data.code == 200) {
                           app.globalData.openId = res.data.data.openid
                           wx.request({
-                            url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/list', //
+                            url: 'https://www.wdxfedu.com/apiMan/business/businessWrongbook/api/list', //
                             data: {
                               subject: 0,
                               openid: res.data.data.openid

@@ -26,12 +26,12 @@ Page({
     items2: [{
         name: '1',
         value: '已攻克',
-        checked: true
+        
       },
       {
         name: '0',
         value: '未攻克',
-
+        checked: true
       }
     ],
     items3: [{
@@ -46,7 +46,7 @@ Page({
       }
     ],
     seleted: 1,
-    seleted2: 1,
+    seleted2: 0,
     seleted3: 1,
     title: '',
     yuanyin: ''
@@ -172,13 +172,6 @@ Page({
   },
   showTopTips: function() {
     if (this.data.disable) {
-
-      if (this.data.yuanyin == '') {
-        wx.showToast({
-          icon: 'none',
-          title: '请输入错题原因',
-        })
-      } else {
         if (this.data.files == '') {
           wx.showToast({
             icon: 'none',
@@ -191,7 +184,7 @@ Page({
           // console.log(app.globalData.openId)
           var that = this
           wx.request({
-            url: 'http://lvyq.free.idcfengye.com/business/businessWrongbook/api/save',
+            url: 'https://www.wdxfedu.com/apiMan/business/businessWrongbook/api/save',
             method: 'post',
             data: {
               openid: app.globalData.openId,
@@ -230,9 +223,6 @@ Page({
             }
           })
         }
-      }
-
-      console.log(this.data.yuanyin)
       console.log(this.data.seleted)
       console.log(this.data.seleted2)
       console.log(this.data.seleted3)
